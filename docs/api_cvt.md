@@ -1,4 +1,4 @@
-::: pyhades.tags.CVTEngine
+::: PyIAC.tags.CVTEngine
     :docstring:
     :members: set_tag
     :members: set_tags
@@ -37,8 +37,8 @@
     :members: add_conversions
     :members: add_variables
 
-::: pyhades.tags.TagBinding
+::: PyIAC.tags.TagBinding
     :docstring:
 
-::: pyhades.tags.GroupBinding
+::: PyIAC.tags.GroupBinding
     :docstring:

@@ -1,14 +1,16 @@
-# PyHades
-A python library to develop continuous tasks using sync or async concurrent threads, but not only that, the design intent for PyHades is create Automation Industrial Process Applications (AIPA); that's why, PyHades provides to you a Database model according to AIPA, currently, PyHades counts with Historian DataLogger and Alarm Management System (ISA 18.2).
+# PyIAC
+
+A python library to develop continuous tasks using sync or async concurrent threads, but not only that, the design intent for PyIAC is create Automation Industrial Process Applications (AIPA); that's why, PyIAC provides to you a Database model according to AIPA, currently, PyIAC counts with Historian DataLogger and Alarm Management System (ISA 18.2).
 
 ## Description
-PyHades was born with the intention of solving synchronized or asynchronous concurrent tasks in an easy and declarative way.
 
-Situations where the finite state machine design pattern is recommended, PyHades offers a declarative way to solve such a problem.
+PyIAC was born with the intention of solving synchronized or asynchronous concurrent tasks in an easy and declarative way.
 
-You can use PyHades for small, medium or even large projects, regardless of the type of application, that is, web, desktop, cloud, embedded development, among others.
+Situations where the finite state machine design pattern is recommended, PyIAC offers a declarative way to solve such a problem.
 
-## Why you should use PyHades?
+You can use PyIAC for small, medium or even large projects, regardless of the type of application, that is, web, desktop, cloud, embedded development, among others.
+
+## Why you should use PyIAC?
 
 Imagine that you have 2 functions that you want to run like [daemons](https://en.wikipedia.org/wiki/Daemon_(computing))
 
@@ -45,12 +47,12 @@ if __name__=='__main__':
 
 Here you already have a problem, the *func2* is unreachable due to the blocking behavior of the *func1*.
 
-PyHades solves to you this problem using multithreading in an easy and declarative way without blocking behavior.
+PyIAC solves to you this problem using multithreading in an easy and declarative way without blocking behavior.
 
 ```python
-from pyhades import PyHades
+from PyIAC import PyIAC
 
-app = PyHades()
+app = PyIAC()
 
 @app.thread(period=1.0)
 def func1():
@@ -86,7 +88,7 @@ don't keep in mind race conditions.
 
 *However, since Process A started its transaction thinking that the satrting balance was $2.000, it would unwittingly leave us bonus-less when it updates our final bank balance to $1.000. This is a prime example of a race condition within our software, and it's a very real danger always waiting to strike us in the most unfortunate ways.*
 
-So, **this problem is solved with PyHades with its read/write methods in a safe-thread mechanism.** 
+So, **this problem is solved with PyIAC with its read/write methods in a safe-thread mechanism.** 
 
 Let's take a look at what happened in closer detail. If we look at the following table, we'll see the ideal flow of execution for both Process A and Process B:
 
@@ -97,18 +99,18 @@ However, due to the fact we haven't implemented proper synchronization mechanism
 ![unsafe-thread mechanism](docs/img/unsafe-thread-mechanism.png)
 
 ## Installation
-You can install PyHades from PyPi
+You can install PyIAC from PyPi
 ```python
-pip install PyHades
+pip install PyIAC
 ```
 
 ## Quick Start
-PyHades is based on Singleton Pattern, so you can instantiate it anywhere in your app and it will keep its reference and be the same object throughout your app.
+PyIAC is based on Singleton Pattern, so you can instantiate it anywhere in your app and it will keep its reference and be the same object throughout your app.
 
 ```python
-from pyhades import PyHades
+from PyIAC import PyIAC
 
-app = PyHades()
+app = PyIAC()
 
 @app.thread(period=0.5)
 def say_hello():
@@ -121,7 +123,7 @@ if __name__=='__main__':
 ```
 
 ## User Guide
-You can define a PyHadesStateMachine to solve problem with this [Design Pattern](https://en.wikipedia.org/wiki/State_pattern#:~:text=The%20state%20pattern%20is%20a,concept%20of%20finite%2Dstate%20machines.)
+You can define a PyIACStateMachine to solve problem with this [Design Pattern](https://en.wikipedia.org/wiki/State_pattern#:~:text=The%20state%20pattern%20is%20a,concept%20of%20finite%2Dstate%20machines.)
 
 - [State Machines](https://hades.readthedocs.io/en/latest/user_guide_state_machines)
 - [Current Value Table](https://hades.readthedocs.io/en/latest/user_guide_cvt)

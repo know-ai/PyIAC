@@ -1,10 +1,10 @@
-site_name: PyHades Documentation
+site_name: PyIAC Documentation
 
 theme:
   name: material
 
-repo_name: Hades
-repo_url: https://github.com/know-ai/hades
+repo_name: PyIAC
+repo_url: https://github.com/know-ai/PyIAC
 edit_uri: ""
 site_dir: _build/html
 
@@ -19,9 +19,9 @@ nav:
       - Alarm Management System (AMS): 'user_guide_alarm_management_system.md'
       - Flask Integration: 'user_guide_context.md'
     - API Reference:
-      - PyHades: 'api_core.md'
-      - PyHadesContext: 'api_context.md'
-      - PyHadesStateMachine: 'api_state_machine.md'
+      - PyIAC: 'api_core.md'
+      - PyIACContext: 'api_context.md'
+      - PyIACStateMachine: 'api_state_machine.md'
       - StateMachineManager: 'api_state_machine_manager.md'
       - AlarmManager: 'api_alarm_manager.md'
       - DBManager: 'api_db_manager.md'

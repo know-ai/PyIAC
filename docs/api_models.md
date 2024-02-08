@@ -1,14 +1,14 @@
-::: pyhades.models.StringType
+::: PyIAC.models.StringType
     :docstring:
 
-::: pyhades.models.FloatType
+::: PyIAC.models.FloatType
     :docstring:
 
-::: pyhades.models.IntegerType
+::: PyIAC.models.IntegerType
     :docstring:
 
-::: pyhades.models.BooleanType
+::: PyIAC.models.BooleanType
     :docstring:
 
-::: pyhades.models.StringType
+::: PyIAC.models.StringType
     :docstring:

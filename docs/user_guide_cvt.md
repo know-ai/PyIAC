@@ -8,14 +8,14 @@ CVTEngine is like a tags repository based on Singleton pattern that allows to yo
 
 This means that regardless of the way you obtain the field variables, within the application it will be handled under the OPC UA standard and structure.
 
-This will help you to have a data structure for the process variables very well referenced within the application. Also, due to the multi-threaded nature of PyHades, CVT allows you to distribute data in your application in a safe way without interfering with the threads executed by PyHades.
+This will help you to have a data structure for the process variables very well referenced within the application. Also, due to the multi-threaded nature of PyIAC, CVT allows you to distribute data in your application in a safe way without interfering with the threads executed by PyIAC.
 
 In short, you can define objects in your app that represents field variables called Tags, these objects have a number of attributes that allows you to know all the necessary information of a field variable.
 
 Usage
 
 ```python
->>> from pyhades.tags import CVTEngine
+>>> from PyIAC.tags import CVTEngine
 >>> tag_engine = CVTEngine()
 ```
 
@@ -89,7 +89,7 @@ For example, a tag can represent the pressure in a tank, so, this variable can b
 
 So, you can define different multiplier for unit conversions according [the International Society of Automation, ISA](https://www.isa.org/getmedia/192f7bda-c77c-480a-8925-1a39787ed098/CCST-Conversions-document.pdf) standard, preferable.
 
-Currently, PyHades offers some conversions by default, according to variables and units defined. see the [database model](dbmodels.md) section.
+Currently, PyIAC offers some conversions by default, according to variables and units defined. see the [database model](dbmodels.md) section.
 
 If you want to add new conversions factor, you must define a json file with the following structure:
 
@@ -124,7 +124,7 @@ The example above define that 1 meters = 39.37008 inches, and 1 meter_cube = 100
 Once you define the json file, you can load it into the application with CVTEngine:
 
 ```pythonn
-from pyhades.tags import CVTEngine
+from PyIAC.tags import CVTEngine
 
 tag_engine = CVTEngine()
 tag_engine.add_conversions("root_path/units.json")
@@ -195,17 +195,17 @@ Let's go back to the traffic light example
 
 
 ```python
-from pyhades import PyHades, PyHadesStateMachine, State
-from pyhades.tags import CVTEngine, TagBinding
+from PyIAC import PyIAC, PyIACStateMachine, State
+from PyIAC.tags import CVTEngine, TagBinding
 
-app = PyHades()
+app = PyIAC()
 
 tag_engine = CVTEngine()
 tag_engine.set_tag("time_left", 'seconds', 'int', 'Time left to change traffic light', 0, 30)
 
 
 @app.define_machine(name='TrafficLight', interval=1.0, mode="async")
-class TrafficLightMachine(PyHadesStateMachine):
+class TrafficLightMachine(PyIACStateMachine):
 
     # states
     green  = State('Green', initial=True)

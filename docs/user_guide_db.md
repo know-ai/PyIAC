@@ -6,7 +6,7 @@ By default, the app mode is "Development*. If the app mode is *Development* so t
 
 For Sqlite Database you must define the db filename with the arg *dbfile* in the method *set_db*.
 
-For Database in production you must define the data base type with *dbtype*. PyHades Support Postgres and MySQL.
+For Database in production you must define the data base type with *dbtype*. PyIAC Support Postgres and MySQL.
 
 Then, once you set the db you must set the tags that you want to log with the method *set_tag*
 
@@ -15,11 +15,11 @@ Then, once you set the db you must set the tags that you want to log with the me
 Usage
 
 ```python
->>> from pyhades import PyHades, PyHadesStateMachine, State
->>> from pyhades.models import IntegerType
->>> from pyhades.tags import CVTEngine, TagBinding
+>>> from PyIAC import PyIAC, PyIACStateMachine, State
+>>> from PyIAC.models import IntegerType
+>>> from PyIAC.tags import CVTEngine, TagBinding
 
->>> app = PyHades()
+>>> app = PyIAC()
 >>> app.set_mode('Development')
 # DB Definition
 >>> app.set_db(dbfile="app.db")
@@ -61,7 +61,7 @@ app.set_db(dbtype=POSTGRESQL, drop_table=db_drop_table, **DATABASE)
 
 ```python
 @app.define_machine(name='CounterSimulator', interval=interval, mode="async")
-class CounterSimulator(PyHadesStateMachine):
+class CounterSimulator(PyIACStateMachine):
 
     # states
     start  = State('starting', initial=True)

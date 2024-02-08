@@ -1,4 +1,4 @@
-::: pyhades.PyHades
+::: PyIAC.PyIAC
     :docstring:
     :members: run
     :members: safe_start

@@ -18,15 +18,15 @@ To prepare the OPC UA server and client, see sections *Running Prosys OPC Server
 
 ```python
 # alarm_management_system.py
-from pyhades import PyHades, PyHadesStateMachine, State
-from pyhades.tags import CVTEngine, TagBinding
-from pyhades.alarms import Alarm, TriggerType
+from PyIAC import PyIAC, PyIACStateMachine, State
+from PyIAC.tags import CVTEngine, TagBinding
+from PyIAC.alarms import Alarm, TriggerType
 import requests
 import os
 import logging
 
-# PyHades app definition
-app = PyHades()
+# PyIAC app definition
+app = PyIAC()
 app.set_mode('Development')
 app.set_db(dbfile="app.db")
 
@@ -62,7 +62,7 @@ app.append_alarm(alarm4)
 
 
 @app.define_machine(name='DAS', interval=1.0, mode="async")
-class DAS(PyHadesStateMachine):
+class DAS(PyIACStateMachine):
 
     # State Definitions
     starting = State('Starting', initial=True)
@@ -152,9 +152,9 @@ if __name__=="__main__":
         das.disconnect_opc_client()
 ```
 
-## Running PyHades AMS Service
+## Running PyIAC AMS Service
 
-At this point you already have a PyHades AMS code, just is missing run it.
+At this point you already have a PyIAC AMS code, just is missing run it.
 
 If everything goes well so far, just is missing to declare the environment variable *OPC_SERVER_URL*, in this case, I am using Prosys OPC Server Simulator locally. So we can get its url in the Status section of the app, see teh following image.
 

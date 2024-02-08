@@ -1,5 +1,5 @@
-# Context Manager with PyHades
-When you need to run hades threads integrated with web services that have a main thread, you must run the application that contains the main thread inside a PyHades Context and pass the PyHades application object to this context.
+# Context Manager with PyIAC
+When you need to run hades threads integrated with web services that have a main thread, you must run the application that contains the main thread inside a PyIAC Context and pass the PyIAC application object to this context.
 
 ## [Flask](https://flask.palletsprojects.com/en/2.0.x/) Integration
 Many times, you have to execute this design pattern embedded in a web application.
@@ -8,14 +8,14 @@ In this section I show you how to integrate a state machine in an application wi
 
 ```python
 from flask import Flask
-from pyhades import PyHades, PyHadesContext, State, PyHadesStateMachine
+from PyIAC import PyIAC, PyIACContext, State, PyIACStateMachine
 
 
 flask_app = Flask(__name__)
-hades_app = PyHades()
+hades_app = PyIAC()
 
 @hades_app.define_machine(name='TrafficLight', interval=1.0, mode="async")
-class TrafficLightMachine(PyHadesStateMachine):
+class TrafficLightMachine(PyIACStateMachine):
 
     # states
     green  = State('Green', initial=True)
@@ -84,7 +84,7 @@ def hello_world():
 
 if __name__ == "__main__":
 
-    with PyHadesContext(hades_app):
+    with PyIACContext(hades_app):
         
         flask_app.run()
 ```

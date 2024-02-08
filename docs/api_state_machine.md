@@ -1,4 +1,4 @@
-::: pyhades.PyHadesStateMachine
+::: PyIAC.PyIACStateMachine
     :docstring:
     :members: get_state
     :members: get_states

@@ -7,7 +7,7 @@ conditions and converting the resulting samples into digital numeric values that
 
 In this opportunity let me show how to get and store data from an industrial server to work with that.
 
-The goal of this case study is give you the tools to communicate with an industrial data server in a pythonic way using PyHades.
+The goal of this case study is give you the tools to communicate with an industrial data server in a pythonic way using PyIAC.
 
 You can see the following architecture of the problem we want to solve
 
@@ -15,7 +15,7 @@ You can see the following architecture of the problem we want to solve
 
 In the previous figure you can see that qthe factory expose an OPC UA Server and we want get that data and store it in an SQL database.
 
-So, in this example I want to show you how to create the Data Acquisition System (PyHades DAS) and the database.
+So, in this example I want to show you how to create the Data Acquisition System (PyIAC DAS) and the database.
 
 ## Running Prosys OPC Server Simulator
 
@@ -27,7 +27,7 @@ So, we have installed the Prosys OPC Server Simulator locally, and we have the f
 
 You also get a public prosys opc ua server in the following url: *opc.tcp://uademo.prosysopc.com:53530/OPCUA/SimulationServer*
 
-So, the idea here is to create the PyHades DAS and its database, but firstly, you need you install [Pronode OPC UA Client](https://hub.docker.com/r/knowai/pronode_opcua_client) *version 1.0.2* whom works like a gateway beetween the opcua server an our application using a restful api.
+So, the idea here is to create the PyIAC DAS and its database, but firstly, you need you install [Pronode OPC UA Client](https://hub.docker.com/r/knowai/pronode_opcua_client) *version 1.0.2* whom works like a gateway beetween the opcua server an our application using a restful api.
 
 ## Running Pronode OPCUA Client
 
@@ -61,21 +61,21 @@ And must have a console like this.
 
 ![Running Pronode OPCUA Client Docker Image](img/run_pronode_opcua_client_docker_image.png)
 
-## Making PyHades DAS Application
+## Making PyIAC DAS Application
 
-After run the Pronode OPCUA Client service, let me show how to create and run a minimalist Data Acquisition System made with PyHades
+After run the Pronode OPCUA Client service, let me show how to create and run a minimalist Data Acquisition System made with PyIAC
 
 ```python
 # data_acquisition_system.py
 
-from pyhades import PyHades, PyHadesStateMachine, State
-from pyhades.tags import CVTEngine, TagBinding
+from PyIAC import PyIAC, PyIACStateMachine, State
+from PyIAC.tags import CVTEngine, TagBinding
 import requests
 import os
 import logging
 
-# PyHades app definition
-app = PyHades()
+# PyIAC app definition
+app = PyIAC()
 app.set_mode('Development')
 app.set_db(dbfile="app.db")
 
@@ -88,7 +88,7 @@ interval = 1.0
 app.set_dbtags(['Triangle'], interval)
 
 @app.define_machine(name='DAS', interval=1.0, mode="async")
-class DAS(PyHadesStateMachine):
+class DAS(PyIACStateMachine):
 
     # State Definitions
     starting = State('Starting', initial=True)
@@ -164,9 +164,9 @@ if __name__=="__main__":
         das.disconnect_opc_client()
 ```
 
-## Running PyHades DAS Service
+## Running PyIAC DAS Service
 
-At this point you already have a PyHades DAS code, just is missing run it.
+At this point you already have a PyIAC DAS code, just is missing run it.
 
 If everything goes well so far, just is missing to declare the environment variable *OPC_SERVER_URL*, in this case, I am using Prosys OPC Server Simulator locally. So we can get its url in the Status section of the app, see teh following image.
 

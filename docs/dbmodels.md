@@ -1,10 +1,10 @@
 # Database Models
 
-The entity relational diagram for PyHades database models is shown as follow:
+The entity relational diagram for PyIAC database models is shown as follow:
 
 ![ERD Database Models](img/erd.png)
 
-PyHades has the following tables:
+PyIAC has the following tables:
 
 - Tags: It stores the information to define tags.
 - TagValue: It stores the timeserie database for historian.
@@ -84,7 +84,7 @@ For example
 Once you define your json file, you can add it to your database using the CVTEngine instance:
 
 ```python
-from pyhades.tags import CVTEngine
+from PyIAC.tags import CVTEngine
 
 tag_engine = CVTEngine()
 tag_engine.add_variables("url/variables.json")

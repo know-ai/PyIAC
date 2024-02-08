@@ -1,4 +1,4 @@
-::: pyhades.managers.DBManager
+::: PyIAC.managers.DBManager
     :docstring:
     :members: set_db
     :members: get_db

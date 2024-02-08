@@ -1,2 +1,2 @@
-::: pyhades.PyHadesContext
+::: PyIAC.PyIACContext
     :docstring:

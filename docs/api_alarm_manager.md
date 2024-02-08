@@ -1,4 +1,4 @@
-::: pyhades.managers.AlarmManager
+::: PyIAC.managers.AlarmManager
     :docstring:
     :members: append_alarm
     :members: update_alarm

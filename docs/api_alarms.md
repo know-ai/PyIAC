@@ -1,4 +1,4 @@
-::: pyhades.alarms.Alarm
+::: PyIAC.alarms.Alarm
     :docstring:
     :members: get_trigger
     :members: set_trigger

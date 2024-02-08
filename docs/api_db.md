@@ -1,4 +1,4 @@
-::: pyhades.logger.DataLoggerEngine
+::: PyIAC.logger.DataLoggerEngine
     :docstring:
     :members: set_db
     :members: get_db

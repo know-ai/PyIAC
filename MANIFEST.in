@@ -1,1 +1,1 @@
-recursive-include pyhades/src/ *.json
+recursive-include PyIAC/src/ *.json

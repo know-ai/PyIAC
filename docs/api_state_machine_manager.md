@@ -1,4 +1,4 @@
-::: pyhades.managers.StateMachineManager
+::: PyIAC.managers.StateMachineManager
     :docstring:
     :members: append_machine
     :members: get_machines
