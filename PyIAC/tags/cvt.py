@@ -960,19 +960,7 @@ class CVTEngine(Singleton):
         """
         Returns a list of the tag names defined.
         """
-        _query = dict()
-        _query["action"] = "get_tags"
-
-        _query["parameters"] = dict()
-        # _query["parameters"]["name"] = name
-        # _query["parameters"]["value"] = value
-
-        self.request(_query)
-        result = self.response()
-
-        return result
-
-        # return self._cvt.get_tags()
+        return self._cvt.get_tags()
 
     def write_tag(self, name:str, value:float)->dict:
         """
