@@ -1,4 +1,4 @@
-__version__ = '1.0.0b'
+__version__ = '1.0.0'
 
 from .core import PyIAC
 from .context import PyIACContext
